@@ -1,4 +1,4 @@
-# ❤️ Heart Disease Prediction Using Machine Learning
+# Heart Disease Prediction Using Machine Learning
 
 ## 📌 Introduction
 Heart disease is one of the leading causes of mortality globally. Early detection is crucial to preventing life-threatening cardiac events. This project analyzes patient medical attributes such as **age, blood pressure, cholesterol, heart rate, chest pain type**, etc., to predict the likelihood of heart disease.
