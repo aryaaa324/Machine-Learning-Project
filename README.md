@@ -172,16 +172,9 @@ This step highlights which features are impactful predictors.
 
 ---
 
-Absolutely! Here’s an **expanded and GitHub-ready Markdown version** of **Steps 5–9 (Data Preprocessing → Model Building & Evaluation)** with **clear explanations, code logic, and reasoning**.
-You can copy-paste this into your `README.md` file for your **Heart Disease Prediction** project.
-
----
-
 ## 🧩 **Step 5 | Data Preprocessing** <a name="preprocessing"></a>
 
 Before training any model, it’s essential to **clean, prepare, and transform the data** into a suitable form. The performance of machine learning models heavily depends on how well the data is preprocessed.
-
----
 
 ### 🧹 **5.1 | Irrelevant Features Removal**
 
@@ -192,8 +185,6 @@ These columns add noise and are removed to improve model performance.
 # Example
 data.drop(['PatientID'], axis=1, inplace=True)
 ```
-
----
 
 ### 🔍 **5.2 | Handling Missing Values**
 
@@ -210,7 +201,6 @@ data['ChestPainType'].fillna(data['ChestPainType'].mode()[0], inplace=True)
 
 > 💡 *Alternative approach:* You can use **KNN Imputer** for more data-driven imputation if the dataset has complex patterns.
 
----
 
 ### 📊 **5.3 | Outlier Detection & Treatment**
 
@@ -233,8 +223,6 @@ IQR = Q3 - Q1
 data = data[(data['RestingBP'] >= Q1 - 1.5*IQR) & (data['RestingBP'] <= Q3 + 1.5*IQR)]
 ```
 
----
-
 ### 🧠 **5.4 | Encoding Categorical Variables**
 
 Machine learning models require numeric input. Therefore, categorical variables are encoded numerically.
@@ -252,8 +240,6 @@ data['ExerciseAngina'] = le.fit_transform(data['ExerciseAngina'])
 data = pd.get_dummies(data, columns=['ChestPainType', 'RestingECG', 'ST_Slope'], drop_first=True)
 ```
 
----
-
 ### ⚖️ **5.5 | Feature Scaling**
 
 Since models like **KNN** and **SVM** rely on distance metrics, scaling ensures all features contribute equally.
@@ -268,8 +254,6 @@ num_cols = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
 data[num_cols] = scaler.fit_transform(data[num_cols])
 ```
 
----
-
 ### 🔄 **5.6 | Skewed Feature Transformation**
 
 If numerical features show high skewness, we apply log or power transformations to normalize their distribution.
@@ -279,18 +263,14 @@ import numpy as np
 data['Cholesterol'] = np.log1p(data['Cholesterol'])
 ```
 
----
-
 ✅ After preprocessing, the data is **clean, normalized, and ready** for model training.
 
 ---
 
-## 🤖 **Step 6–9 | Model Building & Evaluation**
+## **Model Building & Evaluation**
 
 We train and evaluate **four models** — Decision Tree, Random Forest, KNN, and SVM.
 Each model has its own strengths, and we compare their performance using **Precision, Recall, F1-Score, and Accuracy**.
-
----
 
 ### 🌳 **Step 6 | Decision Tree Classifier**
 
@@ -332,8 +312,7 @@ print(classification_report(y_test, y_pred))
 
 > ✅ *Decision Tree is easy to interpret but may overfit; we’ll compare its recall with others.*
 
----
-
+----
 ### 🌲 **Step 7 | Random Forest Classifier**
 
 #### **7.1 | Base Model**
