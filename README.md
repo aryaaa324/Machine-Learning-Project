@@ -1,18 +1,18 @@
 # Heart Disease Prediction Using Machine Learning
 
-## 📌 Introduction
+## Introduction
 Heart disease is one of the leading causes of mortality globally. Early detection is crucial to preventing life-threatening cardiac events. This project analyzes patient medical attributes such as **age, blood pressure, cholesterol, heart rate, chest pain type**, etc., to predict the likelihood of heart disease.
 
 The primary goal is to **build a predictive machine learning model** with **high recall for class 1 (patients with heart disease)** to ensure we **do not miss diagnosing a patient at risk**.
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 Develop a machine learning model that predicts whether a patient is at risk of heart disease based on medical measurements, focusing on **maximizing recall** to identify as many heart-disease patients as possible.
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 * **Explore the Dataset** to understand feature distributions and behavior
 * Perform **Extensive EDA** — univariate and bivariate analysis with respect to the target
 * Apply **Data Preprocessing**, including:
@@ -30,7 +30,7 @@ Develop a machine learning model that predicts whether a patient is at risk of h
 
 ---
 
-## 🧭 Table of Contents  
+##  Table of Contents  
 **(As provided — unchanged and preserved exactly)**
 
 * [Step 1 | Import Libraries](#import)
@@ -73,7 +73,7 @@ Develop a machine learning model that predicts whether a patient is at risk of h
 
 ---
 
-## 🔍 Dataset Overview
+##  Dataset Overview
 The dataset consists of medical records used to determine heart disease likelihood.
 
 | Feature | Description |
@@ -89,7 +89,7 @@ The dataset consists of medical records used to determine heart disease likeliho
 | **Target** | 1 = Heart Disease, 0 = No Disease |
 
 ---
-## ✨ Step-by-Step Explanation (Simple & Clear)
+##  Step-by-Step Explanation (Simple & Clear)
 
 ### **Step 1 | Import Libraries** <a name="import"></a>
 We begin by importing all the required Python libraries that will help in:
@@ -212,29 +212,29 @@ We conclude by:
 
 ---
 
-## 🧠 Model Building & Performance Summary
+##  Model Building & Performance Summary
 
 | Model | Needs Scaling | Key Strength | Notes |
 |------|-------------|-------------|------|
-| Decision Tree | ❌ | Easy to interpret | Prone to overfitting |
-| Random Forest | ❌ | **High recall & robustness** | Best overall model |
-| KNN | ✅ | Simple, distance-based | Highly scale-sensitive |
-| SVM | ✅ | Strong boundary classification | Recall depends on kernel selection |
+| Decision Tree | No | Easy to interpret | Prone to overfitting |
+| Random Forest | No | **High recall & robustness** | Best overall model |
+| KNN | Yes | Simple, distance-based | Highly scale-sensitive |
+| SVM | Yes | Strong boundary classification | Recall depends on kernel selection |
 
 **Metric Focus:**  
-⚠️ Recall (Sensitivity) for class 1 (heart disease present) was prioritized.
+ Recall (Sensitivity) for class 1 (heart disease present) was prioritized.
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 - **Random Forest** performed best with **high recall**, making it suitable for medical early-warning systems.
 - Proper **data preprocessing** significantly improved model reliability.
 - The model can assist healthcare professionals by supporting early risk screening.
 
-### 🔮 Future Scope:
+###  Future Scope:
 - Larger real-world clinical datasets
 - Deep learning & ensemble stacking
-- Web-app deployment for clinical usage
+- deployment for clinical usage
 
 ---
 
