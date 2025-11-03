@@ -172,11 +172,11 @@ This step highlights which features are impactful predictors.
 
 ---
 
-## 🧩 **Step 5 | Data Preprocessing** <a name="preprocessing"></a>
+## **Step 5 | Data Preprocessing** <a name="preprocessing"></a>
 
 Before training any model, it’s essential to **clean, prepare, and transform the data** into a suitable form. The performance of machine learning models heavily depends on how well the data is preprocessed.
 
-### 🧹 **5.1 | Irrelevant Features Removal**
+### **5.1 | Irrelevant Features Removal**
 
 Some datasets contain extra columns such as *ID numbers, patient names,* or *unrelated metadata* that do not influence heart disease prediction.
 These columns add noise and are removed to improve model performance.
@@ -186,7 +186,7 @@ These columns add noise and are removed to improve model performance.
 data.drop(['PatientID'], axis=1, inplace=True)
 ```
 
-### 🔍 **5.2 | Handling Missing Values**
+###  **5.2 | Handling Missing Values**
 
 Missing data can mislead the model and reduce accuracy.
 We handle it using:
@@ -199,10 +199,10 @@ data['Cholesterol'].fillna(data['Cholesterol'].median(), inplace=True)
 data['ChestPainType'].fillna(data['ChestPainType'].mode()[0], inplace=True)
 ```
 
-> 💡 *Alternative approach:* You can use **KNN Imputer** for more data-driven imputation if the dataset has complex patterns.
+>  *Alternative approach:* You can use **KNN Imputer** for more data-driven imputation if the dataset has complex patterns.
 
 
-### 📊 **5.3 | Outlier Detection & Treatment**
+### **5.3 | Outlier Detection & Treatment**
 
 Outliers (extremely high or low values) can distort model training, especially for algorithms that rely on distance or mean values.
 
@@ -223,7 +223,7 @@ IQR = Q3 - Q1
 data = data[(data['RestingBP'] >= Q1 - 1.5*IQR) & (data['RestingBP'] <= Q3 + 1.5*IQR)]
 ```
 
-### 🧠 **5.4 | Encoding Categorical Variables**
+### **5.4 | Encoding Categorical Variables**
 
 Machine learning models require numeric input. Therefore, categorical variables are encoded numerically.
 
@@ -240,7 +240,7 @@ data['ExerciseAngina'] = le.fit_transform(data['ExerciseAngina'])
 data = pd.get_dummies(data, columns=['ChestPainType', 'RestingECG', 'ST_Slope'], drop_first=True)
 ```
 
-### ⚖️ **5.5 | Feature Scaling**
+###  **5.5 | Feature Scaling**
 
 Since models like **KNN** and **SVM** rely on distance metrics, scaling ensures all features contribute equally.
 
@@ -254,7 +254,7 @@ num_cols = ['Age', 'RestingBP', 'Cholesterol', 'MaxHR', 'Oldpeak']
 data[num_cols] = scaler.fit_transform(data[num_cols])
 ```
 
-### 🔄 **5.6 | Skewed Feature Transformation**
+###  **5.6 | Skewed Feature Transformation**
 
 If numerical features show high skewness, we apply log or power transformations to normalize their distribution.
 
@@ -263,7 +263,7 @@ import numpy as np
 data['Cholesterol'] = np.log1p(data['Cholesterol'])
 ```
 
-✅ After preprocessing, the data is **clean, normalized, and ready** for model training.
+After preprocessing, the data is **clean, normalized, and ready** for model training.
 
 ---
 
@@ -272,7 +272,7 @@ data['Cholesterol'] = np.log1p(data['Cholesterol'])
 We train and evaluate **four models** — Decision Tree, Random Forest, KNN, and SVM.
 Each model has its own strengths, and we compare their performance using **Precision, Recall, F1-Score, and Accuracy**.
 
-### 🌳 **Step 6 | Decision Tree Classifier**
+###  **Step 6 | Decision Tree Classifier**
 
 #### **6.1 | Base Model**
 
@@ -310,10 +310,10 @@ y_pred = best_dt.predict(X_test)
 print(classification_report(y_test, y_pred))
 ```
 
-> ✅ *Decision Tree is easy to interpret but may overfit; we’ll compare its recall with others.*
+>  *Decision Tree is easy to interpret but may overfit; we’ll compare its recall with others.*
 
 ----
-### 🌲 **Step 7 | Random Forest Classifier**
+###  **Step 7 | Random Forest Classifier**
 
 #### **7.1 | Base Model**
 
@@ -349,11 +349,11 @@ y_pred_rf = best_rf.predict(X_test)
 print(classification_report(y_test, y_pred_rf))
 ```
 
-> 💪 *Random Forest generally gives the highest recall and robustness against overfitting.*
+>  *Random Forest generally gives the highest recall and robustness against overfitting.*
 
 ---
 
-### 👥 **Step 8 | K-Nearest Neighbors (KNN)**
+###  **Step 8 | K-Nearest Neighbors (KNN)**
 
 #### **8.1 | Base Model**
 
@@ -381,11 +381,11 @@ y_pred_knn = best_knn.predict(X_test)
 print(classification_report(y_test, y_pred_knn))
 ```
 
-> ⚠️ *KNN performs well when features are properly scaled; sensitive to outliers.*
+>  *KNN performs well when features are properly scaled; sensitive to outliers.*
 
 ---
 
-### 💠 **Step 9 | Support Vector Machine (SVM)**
+###  **Step 9 | Support Vector Machine (SVM)**
 
 #### **9.1 | Base Model**
 
@@ -418,11 +418,11 @@ y_pred_svm = best_svm.predict(X_test)
 print(classification_report(y_test, y_pred_svm))
 ```
 
-> 🔍 *SVM works well with high-dimensional data but is slower on large datasets.*
+>  *SVM works well with high-dimensional data but is slower on large datasets.*
 
 ---
 
-## 📈 **Model Comparison**
+##  **Model Comparison**
 
 | Model         | Accuracy  | Recall    | Precision | F1-Score  |
 | ------------- | --------- | --------- | --------- | --------- |
@@ -431,7 +431,7 @@ print(classification_report(y_test, y_pred_svm))
 | KNN           | 84.1%     | 85.5%     | 83.9%     | 84.7%     |
 | SVM           | 86.8%     | 88.0%     | 86.1%     | 87.0%     |
 
-✅ **Best Model: Random Forest Classifier**
+ **Best Model: Random Forest Classifier**
 
 > High recall → detects most heart disease patients
 > Robust, stable, interpretable feature importance
