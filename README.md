@@ -6,6 +6,14 @@ Heart disease is one of the leading causes of mortality globally. Early detectio
 The primary goal is to **build a predictive machine learning model** with **high recall for class 1 (patients with heart disease)** to ensure we **do not miss diagnosing a patient at risk**.
 
 ---
+## Motivation
+Traditional diagnosis methods often rely on a combination of clinical judgment, ECG patterns, and lab results. However, these can be subjective or require expensive medical tests.
+With the growth of machine learning (ML) in healthcare, it is now possible to build automated systems that:
+- Detect potential heart disease at an early stage
+- Provide risk scores for medical professionals
+- Reduce diagnostic costs
+- Enhance preventive care
+> By leveraging predictive analytics, this system assists in early intervention and decision-making.
 
 ##  Problem Statement
 Develop a machine learning model that predicts whether a patient is at risk of heart disease based on medical measurements, focusing on **maximizing recall** to identify as many heart-disease patients as possible.
@@ -76,17 +84,20 @@ Develop a machine learning model that predicts whether a patient is at risk of h
 ##  Dataset Overview
 The dataset consists of medical records used to determine heart disease likelihood.
 
-| Feature | Description |
-|--------|-------------|
-| Age | Age of the patient |
-| Sex | 1 = Male, 0 = Female |
-| RestingBP | Resting blood pressure |
-| Cholesterol | Serum cholesterol level |
-| Fasting Blood Sugar | Indicator >120mg/dl |
-| Chest Pain Type | Medical category for chest pain |
-| Max Heart Rate | Achieved during exercise |
-| Other Cardiac Indicators | ECG results, exercise-induced angina, etc. |
-| **Target** | 1 = Heart Disease, 0 = No Disease |
+| Feature          | Description                                             | Type        |
+| ---------------- | ------------------------------------------------------- | ----------- |
+| `Age`            | Age of the patient                                      | Numeric     |
+| `Sex`            | 1 = Male, 0 = Female                                    | Categorical |
+| `ChestPainType`  | Type of chest pain (e.g., typical angina, asymptomatic) | Categorical |
+| `RestingBP`      | Resting blood pressure (mm Hg)                          | Numeric     |
+| `Cholesterol`    | Serum cholesterol (mg/dl)                               | Numeric     |
+| `FastingBS`      | Fasting blood sugar >120 mg/dl                          | Binary      |
+| `RestingECG`     | ECG results (normal, ST-T wave abnormality, etc.)       | Categorical |
+| `MaxHR`          | Maximum heart rate achieved                             | Numeric     |
+| `ExerciseAngina` | Exercise-induced angina (Yes/No)                        | Categorical |
+| `Oldpeak`        | ST depression induced by exercise                       | Numeric     |
+| `ST_Slope`       | Slope of peak exercise ST segment                       | Categorical |
+| **`Target`**     | 1 = Heart Disease, 0 = No Heart Disease                 | Binary      |
 
 ---
 ##  Step-by-Step Explanation (Simple & Clear)
@@ -238,6 +249,6 @@ We conclude by:
 
 ---
 
-## 📝 License
+##  License
 This project is licensed under the **MIT License**.
 
