@@ -466,13 +466,6 @@ The goal was to maximize **Recall for class 1 (heart disease present)**, as in m
 
 ---
 
-###  **Key Observations**
-
-* **KNN achieved the highest recall (0.82)** for detecting heart disease, making it the best model in identifying positive cases.
-* **Random Forest and KNN both achieved the highest accuracy (0.84)** overall.
-* Although **Random Forest** had slightly lower recall (0.81), it remains **more robust and generalizable**, making it a better choice for real-world deployment.
-* **Data preprocessing** — including encoding, scaling, and Box-Cox transformation — played a crucial role in improving model consistency.
-
 ###  **Final Conclusion**
 
 * **KNN** performed best in terms of **recall**, crucial for medical screening tasks.
