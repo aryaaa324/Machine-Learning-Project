@@ -184,7 +184,7 @@ Some datasets contain extra columns such as *ID numbers, patient names,* or *unr
 These columns add noise and are removed to improve model performance.
 
 ```python
-# Example
+# Example 
 data.drop(['PatientID'], axis=1, inplace=True)
 ```
 
