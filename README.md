@@ -108,26 +108,49 @@ We begin by importing all the required Python libraries that will help in:
 - Data loading and manipulation (`pandas`, `numpy`)
 - Data visualization (`matplotlib`, `seaborn`)
 - Machine learning model building (`sklearn`)
-
 These libraries provide efficient tools for analysis and model development.
+```python
+import warnings
+warnings.filterwarnings('ignore')
 
+import numpy as np, pandas as pd
+import matplotlib.pyplot as plt, seaborn as sns
+from matplotlib.colors import ListedColormap
+from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKFold
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
+from scipy.stats import boxcox
+
+%matplotlib inline
+```
 ---
 
 ### **Step 2 | Read Dataset** <a name="read"></a>
 The dataset (`heart.csv`) is loaded into a pandas DataFrame.  
 This allows us to work with the data in a structured table format and perform further analysis.
-
+```python
+df = pd.read_csv("heart.csv")
+df.head()
+```
 ---
 
 ### **Step 3 | Understanding the Data** <a name="understanding"></a>
 In this step, we get an initial understanding of the dataset.
+
 
 #### **3.1 Dataset Basic Information** <a name="basic"></a>
 We examine:
 - Total number of rows and columns
 - Data types of each feature (numerical / categorical)
 - Whether missing values are present
-
+```python
+df.info()
+```
 This helps us understand what type of preprocessing is needed.
 
 #### **3.2 Summary Statistics for Numerical Variables** <a name="num_statistics"></a>
@@ -135,7 +158,10 @@ Using `.describe()`, we get:
 - Minimum and maximum values
 - Mean and median values
 - Standard deviation (spread of data)
-
+```python
+df.describe()
+df[features_to_convert].describe()
+```
 This helps identify irregularities, skewness, and potential outliers.
 
 #### **3.3 Summary Statistics for Categorical Variables** <a name="cat_statistics"></a>
@@ -143,7 +169,11 @@ We analyze the frequency of unique categories in features such as:
 - Chest pain type
 - Exercise-induced angina
 - Slope, etc.
-
+```python
+continuous_features = ['age','trestbps','chol','thalach','oldpeak']
+features_to_convert = [c for c in df.columns if c not in continuous_features]
+df[features_to_convert] = df[features_to_convert].astype('object')
+```
 This helps understand distribution patterns in categorical variables.
 
 ---
@@ -158,7 +188,10 @@ This involves studying each feature independently.
   
 - **Categorical Features** (e.g., gender, chest pain type)  
   → Visualized using **count plots / bar charts**
-
+```python
+sns.histplot(df['age'], kde=True, color='#c77dff')
+sns.countplot(data=df, x='sex', hue='target', palette='magma')
+```
 This helps to understand data distribution and detect skewness.
 
 #### **4.2 Bivariate Analysis** <a name="bivariate"></a>
@@ -169,7 +202,10 @@ Here we analyze how features relate to the **target variable** (Heart Disease).
   
 - **Categorical vs Target**  
   → Visualized using **stacked bars / grouped count plots**
-
+```python
+sns.boxplot(data=df, x='target', y='chol', palette='rocket')
+sns.barplot(data=df, x='target', y='age', palette='flare')
+```
 This step highlights which features are impactful predictors.
 
 ---
