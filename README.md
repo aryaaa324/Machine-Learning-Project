@@ -487,39 +487,50 @@ The goal was to maximize **Recall for class 1 (heart disease present)**, as in m
 * Experiment with **ensemble stacking** and **deep learning (CNNs, RNNs)**.
 * Explore **feature importance analysis** to identify critical medical predictors.
 * Deploy as a **web or mobile app** for healthcare decision support.
-----
-## 🧩 References
+---
+
 ## 🔁 Comparison with Published Work
 
-| Source (paper) | Dataset used | Best model reported | Reported metric(s) (key) | Validation / Notes |
-|---|---:|---|---|---|
-| **This work (you)** | UCI / Cleveland (heart.csv) | Random Forest (balanced) — also KNN & SVM competitive | **RF:** Accuracy = **84%**, Recall(class1)=**0.88**, Precision(class1)=0.83, F1(class1)=0.85. <br> **KNN:** Accuracy = 84%, Recall=0.85. <br> **SVM:** Accuracy = 79%, Recall=0.97. | Train/test split (80/20); hyperparameter tuning with GridSearchCV; prioritized Recall for class1. |
-| Rimal et al. (2025) — *Comparative analysis…* :contentReference[oaicite:0]{index=0} | Cleveland / combined UCI sets | Random Forest / KNN often top depending on CV | Cross-val (5-fold) results show **RF & KNN ≈ 84.15% (avg accuracy)**; RF reported strong macro metrics (precision/recall high) when tuned/ensembled. Also report RF macro accuracy up to ~94% in some tuned configs. | Uses 5-fold CV; reports both per-fold ranges and averaged scores; highlights that choice of preprocessing & CV affects reported maxima. :contentReference[oaicite:1]{index=1} |
-| Sarra et al. (MDPI, 2022) — χ²-based SVM improvement :contentReference[oaicite:2]{index=2} | Cleveland & Statlog (UCI) | χ²-based SVM (feature selection + SVM) | **Before FS:** SVM on Cleveland: Accuracy = 84.21%, Sensitivity ≈ 0.6745. <br> **After χ² feature selection:** SVM on Cleveland: **Accuracy = 89.47%**, Sensitivity (recall) substantially improved; reported AUC ≈ 0.90. | 75:25 train:test & experiments with feature selection; shows feature reduction (14 → 6) improved SVM results. :contentReference[oaicite:3]{index=3} |
-| Srinivasan et al. (Scientific Reports, 2023) — active learning & ensembles :contentReference[oaicite:4]{index=4} | UCI heart datasets (various) | Hybrid / ensemble models (voting/stacking) | Reports a **voting/hybrid ensemble** with accuracy ≈ **85.48%** in their setup; also highlights improvements by bagging/boosting and feature selection; notes deep NN and ensemble methods can reach much higher metrics on some splits. | Uses ensemble/active learning pipelines; shows ensemble voting improves over single models; emphasizes differences caused by folds and preprocessing. :contentReference[oaicite:5]{index=5} |
+| Source (paper)                                                                                                                                                                   |                  Dataset used | Best model reported                                   | Reported metric(s) (key)                                                                                                                                                                                             | Validation / Notes                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------: | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **This work (current study)**                                                                                                                                                    |   UCI / Cleveland (heart.csv) | Random Forest (balanced) — also KNN & SVM competitive | **RF:** Accuracy = **84%**, Recall(class1)=**0.88**, Precision(class1)=0.83, F1(class1)=0.85. <br> **KNN:** Accuracy = 84%, Recall=0.85. <br> **SVM:** Accuracy = 79%, Recall=0.97.                                  | Train/test split (80/20); hyperparameter tuning with GridSearchCV; prioritized Recall for class1.                                       |
+| **Rimal et al. (2025)** — *Comparative analysis of heart disease prediction using logistic regression, SVM, KNN, and random forest with cross-validation for improved accuracy.* | Cleveland / combined UCI sets | Random Forest / KNN often top depending on CV         | Cross-val (5-fold) results show **RF & KNN ≈ 84.15% (avg accuracy)**; RF reported strong macro metrics (precision/recall high) when tuned/ensembled. Also report RF macro accuracy up to ~94% in some tuned configs. | Uses 5-fold CV; reports both per-fold ranges and averaged scores; highlights that choice of preprocessing & CV affects reported maxima. |
+| **Sarra et al. (2022)** — *Enhanced heart disease prediction based on χ² statistical optimal feature selection model.*                                                           |     Cleveland & Statlog (UCI) | χ²-based SVM (feature selection + SVM)                | **Before FS:** SVM on Cleveland: Accuracy = 84.21%, Sensitivity ≈ 0.67. <br> **After χ² feature selection:** SVM on Cleveland: **Accuracy = 89.47%**, AUC ≈ 0.90.                                                    | 75:25 train:test split; shows feature reduction (14 → 6) improved SVM results.                                                          |
+| **Korial et al. (2024)** — *An improved ensemble-based cardiovascular disease detection system with chi-square feature selection.*                                               |     UCI Heart Disease Dataset | Ensemble (Random Forest + SVM + AdaBoost)             | Reported **Accuracy = 91.7%**, F1-score ≈ 0.92, ROC-AUC = 0.94.                                                                                                                                                      | Uses chi-square feature selection and ensemble voting; emphasizes interpretability and reduced computational cost.                      |
+| **Srinivasan et al. (2023)** — *Active learning and ensemble-based hybrid models for heart disease prediction.*                                                                  |  UCI heart datasets (various) | Hybrid ensemble (voting/stacking)                     | Reports a **voting ensemble accuracy ≈ 85.48%**, with improved generalization using bagging and feature selection.                                                                                                   | Uses ensemble and active learning pipelines; shows ensembles outperform individual classifiers.                                         |
 
+---
 
+## 🧩 References
 
-1. Detrano, R. et al. (1989). *Cleveland Heart Disease Dataset*, UCI Machine Learning Repository.  
+1. Detrano, R. et al. (1989). *Cleveland Heart Disease Dataset.* UCI Machine Learning Repository.
    🔗 [https://archive.ics.uci.edu/ml/datasets/heart+disease](https://archive.ics.uci.edu/ml/datasets/heart+disease)
 
-2. Scikit-learn Documentation  
+2. Scikit-learn Documentation
    🔗 [https://scikit-learn.org/](https://scikit-learn.org/)
 
-3. Kaggle – Heart Disease UCI Dataset  
+3. Kaggle – *Heart Disease UCI Dataset*
    🔗 [https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci](https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci)
 
 4. Tan, S., & Kumar, V. (2018). *Introduction to Machine Learning.* Pearson Education.
 
 5. Detrano, R., Janosi, A., Steinbrunn, W., Pfisterer, M., Schmid, J., Sandhu, S., Guppy, K., Lee, S., & Froelicher, V. (1989). *International application of a new probability algorithm for the diagnosis of coronary artery disease.* *American Journal of Cardiology, 64*, 304–310.
 
-6. Aha, D. W., & Kibler, D. *Instance-based prediction of heart-disease presence with the Cleveland database.*  
-   
+6. Aha, D. W., & Kibler, D. (1989). *Instance-based prediction of heart-disease presence with the Cleveland database.*
 
-7. Gennari, J. H., Langley, P., & Fisher, D. (1989). *Models of incremental concept formation.* *Artificial Intelligence, 40*, 11–61.  
-   
+7. Gennari, J. H., Langley, P., & Fisher, D. (1989). *Models of incremental concept formation.* *Artificial Intelligence, 40*, 11–61.
+
+8. Rimal, Y., Sharma, N., Paudel, S., Alsadoon, A., Koirala, M. P., & Gill, S. (2025). *Comparative analysis of heart disease prediction using logistic regression, SVM, KNN, and random forest with cross-validation for improved accuracy.* *Scientific Reports, 15*, 13444.
+   🔗 [https://doi.org/10.1038/s41598-025-93675-1](https://doi.org/10.1038/s41598-025-93675-1)
+
+9. Sarra, R. R., et al. (2022). *Enhanced heart disease prediction based on machine learning and χ² statistical optimal feature selection model.* *Technologies (MDPI), 6*(5), 87.
+   🔗 [https://doi.org/10.3390/2411-9660/6/5/87](https://doi.org/10.3390/2411-9660/6/5/87)
+
+10. Korial, A. E., Gorial, I. I., & Humaidi, A. J. (2024). *An improved ensemble-based cardiovascular disease detection system with chi-square feature selection.* *Computers (MDPI), 13*(6), 126.
+    🔗 [https://doi.org/10.3390/computers13060126](https://doi.org/10.3390/computers13060126)
 
 ---
+  
 ## Steps to Run the Code
 ```python
 ### Clone the Repository
