@@ -487,6 +487,27 @@ The goal was to maximize **Recall for class 1 (heart disease present)**, as in m
 * Experiment with **ensemble stacking** and **deep learning (CNNs, RNNs)**.
 * Explore **feature importance analysis** to identify critical medical predictors.
 * Deploy as a **web or mobile app** for healthcare decision support.
+----
+## 🧩 References
+
+1. Detrano, R. et al. (1989). *Cleveland Heart Disease Dataset*, UCI Machine Learning Repository.  
+   🔗 [https://archive.ics.uci.edu/ml/datasets/heart+disease](https://archive.ics.uci.edu/ml/datasets/heart+disease)
+
+2. Scikit-learn Documentation  
+   🔗 [https://scikit-learn.org/](https://scikit-learn.org/)
+
+3. Kaggle – Heart Disease UCI Dataset  
+   🔗 [https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci](https://www.kaggle.com/datasets/cherngs/heart-disease-cleveland-uci)
+
+4. Tan, S., & Kumar, V. (2018). *Introduction to Machine Learning.* Pearson Education.
+
+5. Detrano, R., Janosi, A., Steinbrunn, W., Pfisterer, M., Schmid, J., Sandhu, S., Guppy, K., Lee, S., & Froelicher, V. (1989). *International application of a new probability algorithm for the diagnosis of coronary artery disease.* *American Journal of Cardiology, 64*, 304–310.
+
+6. Aha, D. W., & Kibler, D. *Instance-based prediction of heart-disease presence with the Cleveland database.*  
+   
+
+7. Gennari, J. H., Langley, P., & Fisher, D. (1989). *Models of incremental concept formation.* *Artificial Intelligence, 40*, 11–61.  
+   
 
 ---
 ## Steps to Run the Code
