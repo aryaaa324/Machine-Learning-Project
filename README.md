@@ -203,6 +203,7 @@ sns.histplot(df['age'], kde=True, color='#c77dff')
 sns.countplot(data=df, x='sex', hue='target', palette='magma')
 ```
 This helps to understand data distribution and detect skewness.
+<img src="assets/images/univariate.png" alt="Univariate Analysis" width="600"/>
 
 #### **4.2 Bivariate Analysis** <a name="bivariate"></a>
 Here we analyze how features relate to the **target variable** (Heart Disease).
@@ -217,6 +218,7 @@ sns.boxplot(data=df, x='target', y='chol', palette='rocket')
 sns.barplot(data=df, x='target', y='age', palette='flare')
 ```
 This step highlights which features are impactful predictors.
+<img src="assets/images/bivariate.png" alt="Bivariate Analysis" width="600"/>
 
 ---
 
@@ -478,7 +480,7 @@ print(classification_report(y_test, y_pred_svm))
 ---
 
 ##  **Model Comparison**
-
+<img src="assets/images/model_comparison.png" alt="Model Comparison" width="600"/>
 | Model          | Accuracy | Recall (class 1) | Precision (class 1) | F1-Score (class 1) |
 |----------------|-----------|------------------|----------------------|--------------------|
 | Decision Tree  | 79%       | 0.85             | 0.78                 | 0.81               |
