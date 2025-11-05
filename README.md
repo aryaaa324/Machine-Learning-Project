@@ -492,7 +492,6 @@ The goal was to maximize **Recall for class 1 (heart disease present)**, as in m
 ## Steps to Run the Code
 ```python
 ### Clone the Repository
-```bash
 git clone https://github.com/yourusername/HeartDiseasePrediction.git
 cd HeartDiseasePrediction
 ```
