@@ -481,6 +481,7 @@ print(classification_report(y_test, y_pred_svm))
 
 ##  **Model Comparison**
 <img src="assets/images/model_comparison.png" alt="Model Comparison" width="600"/>
+
 | Model          | Accuracy | Recall (class 1) | Precision (class 1) | F1-Score (class 1) |
 |----------------|-----------|------------------|----------------------|--------------------|
 | Decision Tree  | 79%       | 0.85             | 0.78                 | 0.81               |
